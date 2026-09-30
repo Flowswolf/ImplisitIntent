@@ -2,6 +2,7 @@ package com.example.implisitintent
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,5 +33,29 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent.createChooser(_sendIntent, "PILIH APLIKASI"))
             }
         }
+
+        //untuk setAlarm
+        val btnSetAlarm = findViewById<Button>(R.id.btnSetAlarm)
+        btnSetAlarm.setOnClickListener {
+            val _alarmIntent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE, "COBA ALARM")
+                putExtra(AlarmClock.EXTRA_HOUR, 20)
+                putExtra(AlarmClock.EXTRA_MINUTES, 15)
+                putExtra(AlarmClock.EXTRA_SKIP_UI, true)
+            }
+            startActivity(_alarmIntent)
+        }
+
+        //untuk setAlarm
+        val btnSetTimer = findViewById<Button>(R.id.btnSetTimer)
+        btnSetTimer.setOnClickListener {
+            val _timerIntent = Intent(AlarmClock.ACTION_SET_TIMER).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE, "COBA TIMER")
+                putExtra(AlarmClock.EXTRA_LENGTH, 20)
+//                putExtra(AlarmClock.EXTRA_SKIP_UI, true)
+            }
+            startActivity(_timerIntent)
+        }
+
     }
 }
