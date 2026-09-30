@@ -79,6 +79,5 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             }
         }
-
     }
 }
