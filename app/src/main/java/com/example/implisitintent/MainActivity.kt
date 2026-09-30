@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 type = "text/plain"
             }
             if (_sendIntent.resolveActivity(packageManager) != null){
-                startActivity(_sendIntent)
+                startActivity(Intent.createChooser(_sendIntent, "PILIH APLIKASI"))
             }
         }
     }
